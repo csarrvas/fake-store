@@ -32,7 +32,6 @@ function Dashboard() {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    alignItems: 'flex-end',
   },
   buttonsContainer: {
     width: '100%',

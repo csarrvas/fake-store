@@ -74,7 +74,7 @@ function Login() {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    alignItems: 'flex-end',
+    alignItems: 'center',
   },
   input: {
     height: 40,
