@@ -10,12 +10,19 @@ import {
   Pressable,
 } from 'react-native';
 import { useMutation } from 'react-query';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../types';
+
+type NavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
 function Login() {
+  const navigation = useNavigation<NavigationProp>();
   const [user, setUser] = useState(VALID_CREDENTIALS);
   const { mutate: login, isLoading } = useMutation(loginApi, {
-    onSuccess(data) {
-      storeData(STORAGE_KEYS.TOKEN, data.data);
+    onSuccess: async (data) => {
+      await storeData(STORAGE_KEYS.TOKEN, data.data);
+      navigation.navigate('Dashboard');
     },
   });
 
@@ -55,7 +62,7 @@ function Login() {
         <Text>Login</Text>
       </Pressable>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({

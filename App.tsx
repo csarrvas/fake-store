@@ -1,8 +1,7 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {
-  SafeAreaView,
-  ScrollView,
   StatusBar,
   useColorScheme,
 } from 'react-native';
@@ -11,6 +10,7 @@ import {
   QueryClientProvider,
 } from 'react-query';
 import Pages from './src/pages';
+import { AuthProvider } from './src/context/AuthContext';
 
 const queryClient = new QueryClient();
 
@@ -20,38 +20,15 @@ function App(): React.JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <SafeAreaView>
+        <AuthProvider>
           <StatusBar
             barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           />
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-          >
             <Pages />
-          </ScrollView>
-        </SafeAreaView>
+        </AuthProvider>
       </NavigationContainer>
     </QueryClientProvider>
   );
 }
-
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
 
 export default App;
