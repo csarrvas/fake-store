@@ -32,6 +32,9 @@ Una aplicación móvil simple pero poderosa que te permite:
 Loom:
 https://www.loom.com/share/5c442f26df20488290b7762ee2b0611e?sid=92c33324-7975-42c7-af10-8ae0427603f1
 
+# Nota:
+- La API de prueba no cuenta con paginación por lo que para hacer la demostración del infinite scroll me vi en la necesidad de concatenar registros repetidos, por eso se pueden ver varios productos idénticos en el video!!
+
 ---
 
 ## 🛠️ **Tecnologías utilizadas**  
