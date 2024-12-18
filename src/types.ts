@@ -7,8 +7,10 @@ export type User = {
 };
 
 export type RootStackParamList = {
-  Login: undefined;
-  Dashboard: undefined;
+  Login: undefined
+  Dashboard: undefined
+  Product: undefined
+  User: undefined
 };
 
 

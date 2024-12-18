@@ -33,10 +33,16 @@ function Login() {
     });
   };
 
+  const onSubmit = () => {
+    if (!user.username || !user.password) {
+      return;
+    }
+    login(user);
+  };
+
   return (
-    <View>
-      <Text>Login</Text>
-      <View>
+    <View style={styles.container}>
+      <View style={{ width: '90%', alignSelf: 'center' }}>
         <TextInput
           style={styles.input}
           onChangeText={(value) => onChangeInput('username', value)}
@@ -54,18 +60,22 @@ function Login() {
           {
             backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
           },
-          styles.wrapperCustom,
+          styles.button,
         ]}
-        onPress={() => login(user)}
+        onPress={onSubmit}
         disabled={isLoading}
       >
-        <Text>Login</Text>
+        <Text style={styles.textButtom}>Login</Text>
       </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    alignItems: 'flex-end',
+  },
   input: {
     height: 40,
     margin: 12,
@@ -76,8 +86,21 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     borderWidth: 1,
     borderRadius: 8,
-    padding: 6,
+    padding: 10,
     paddingVertical: 10,
+  },
+  button: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: '#138',
+    borderRadius: 15,
+  },
+  textButtom: {
+    color: '#fff',
   },
 });
 

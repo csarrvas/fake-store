@@ -8,4 +8,5 @@ export const VALID_CREDENTIALS = {
 export const STORAGE_KEYS = {
   TOKEN: 'user-token',
   USERNAME: 'username',
+  ACTIVE_PRODUCT: 'active-product',
 };

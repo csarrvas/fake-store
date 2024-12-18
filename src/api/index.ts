@@ -3,7 +3,7 @@ import { User } from '../types';
 
 export const loginApi = (user: User) => client.post('/auth/login', user);
 
-export const getProductsApi = () => client.get('/products');
+export const getProductsApi = (limit: number) => client.get(`/products?limit=${limit}`);
 
 export const getProductApi = (id: string) => client.get(`/products/${id}`);
 
